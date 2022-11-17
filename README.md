@@ -4,7 +4,7 @@ Nama: Wedens Elma Malau
 
 NPM: 2106751165
 
-[README untuk Tugas 8](https://github.com/wedens-elma/pbp-flutter-lab/edit/main/README.md#tugas-8-pbp)
+[README untuk Tugas 8](https://github.com/wedens-elma/pbp-flutter-lab/blob/main/README.md#tugas-8-pbp)
 
 ## Jelaskan apa yang dimaksud dengan stateless widget dan stateful widget dan jelaskan perbedaan dari keduanya.
 
