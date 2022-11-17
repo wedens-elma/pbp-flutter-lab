@@ -165,8 +165,7 @@ class _FormPageState extends State<FormPage> {
                                   padding: const EdgeInsets.symmetric(vertical: 20),
                                   shrinkWrap: true,
                                   children: <Widget>[
-                                    const Center(child: Text('Pilih jenis!'),),
-                                    const SizedBox(height: 25,),
+                                    const Center(child: Text('Pilih jenis'),),
                                     TextButton(
                                       onPressed: () {
                                         Navigator.pop(context);
