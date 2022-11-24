@@ -4,6 +4,7 @@ Nama: Wedens Elma Malau
 
 NPM: 2106751165
 
+[README untuk Tugas 8](https://github.com/wedens-elma/pbp-flutter-lab/blob/main/README.md#tugas-8-pbp)
 
 ## Jelaskan apa yang dimaksud dengan stateless widget dan stateful widget dan jelaskan perbedaan dari keduanya.
 
@@ -52,3 +53,38 @@ Sementara itu, variabel const digunakan untuk variable immutable (tidak bisa diu
 6. Title dari HomePage diubah menjadi "Program Counter"
 
 7. Setelah dicoba dengan melakukan flutter run dan sudah berhasil, saya membuka directory repo dan melakukan git add, commit, dan push.
+
+
+# Tugas 8 PBP
+
+Nama: Wedens Elma Malau
+
+NPM: 2106751165
+
+## Jelaskan perbedaan Navigator.push dan Navigator.pushReplacement.
+
+Keduanya berfungsi untuk mengepush route baru ke `Navigator`, dengan cara kerja yang mirip dengan stack. Perbedaannya adalah `Navigator.pushReplacement` dapat mengganti route sebelumnya dengan route lain setelah route baru selesai diload. Contohnya adalah ketika membuka suatu halaman yang membutuhkan login terlebih dahulu, `Navigator.pushReplacement` dapat digunakan untuk mencegah ia kembali ke halaman login ketika menekan tombol back, melainkan dapat diarahkan ke halaman dashboard atau homepage.
+
+## Sebutkan widget apa saja yang kamu pakai di proyek kali ini dan jelaskan fungsinya.
+
+Saya menambahkan widget-widget berikut untuk Tugas 8:
+
+* `Form`: sebagai container dari form input
+* `SingleChildScrollView`: sebagai wadah yang membuat sebuah widget dapat discroll, sehingga menyusun widget ke bawah, namun hanya boleh mempunyai satu child, sehingga jika ingin menyusun beberapa widget harus dimasukkan ke dalam container lain, contohnya Column.
+* `Align`: widget untuk mengatur posisi widget di dalamnya
+* `Navigator`: untuk mengatur route dari halaman-halaman screen
+
+## Sebutkan jenis-jenis event yang ada pada Flutter.
+Beberapa dari event pada Flutter yaitu `onPressed`, `onChanged`, `onSaved`, dan `onTap`. Pada program minggu ini, saya menggunakan `onPressed`, `onChanged`, dan `onSaved`.
+
+## Jelaskan bagaimana cara kerja Navigator dalam "mengganti" halaman dari aplikasi Flutter.
+
+Navigator mempunyai fungsi push yang bekerja mirip seperti stack. Jika ada perintah `Navigator.push`, maka route yang dimasukkan akan ditampilkan pada layer teratas dari layar. Untuk menutup layer teratas dapat dilakukan dengan `Navigator.pop`, sehingga screen akan menampilkan layer di bawahnya.
+
+## Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.
+
+Pertama, saya membuat sebuah drawer pada `main.dart`. Drawer ini berisi tiga tombol navigasi ke 3 page berbeda. Setelah mencoba menjalankan aplikasinya dan berhasil, saya memindahkan drawer dari `main.dart` ke sebuah file baru bernama `drawer.dart` untuk memenuhi checklist untuk bonus.
+
+Setelah menyelesaikan drawer, saya membuat sebuah file lain bernama `form.dart`, yang akan dimasukkan ke routing pada drawere bagian "Tambah Budget". Pada file ini, saya membuat sebuah class untuk menyimpan data budget dan sebuah class untuk state dari halaman. Halaman form ini berisi `TextFormField` untuk nama budget dan nominal, `DateTime` untuk tanggal, dan `DropDown` untuk jenis budget. Terdapat juga sebuah `TextButton` untuk menyimpan input. Untuk menyimpan input, saya membuat sebuah fungsi `onPressed(context)` yang akan meng-construct sebuah objek dari `BudgetData`, yang nantinya akan dimasukkan ke dalam `List<BudgetData>` bernama budgetList.
+
+Untuk halaman data, saya memasukkan masing-masing data budget ke dalam `Material` yang dibentuk seperti card dengan membuat shadow dan elevation, disusun ke dalam sebuah `ListView`. Judul dan nominal budget diletakkan di sebelah kiri, lalu jenis dan tanggal diletakkan di dalam sebuah column trailing, sehingga tampil di sebelah kanan.
