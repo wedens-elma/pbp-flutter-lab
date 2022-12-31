@@ -105,19 +105,19 @@ Ya, pengambilan data JSON dapat dilakukan tanpa membuat model terlebih dahulu, m
 ## Sebutkan widget apa saja yang kamu pakai di proyek kali ini dan jelaskan fungsinya.
 
 Beberapa widget yang saya tambahkan untuk Tugas 9:
-* 'SizedBox': menggunakan SizedBox transparan untuk memberi spasi pada page, dan sebagai pembatas untuk sebuah area
-* 'Spacer': untuk menambahkan spasi pada widget fleksible
-* 'ListView': untuk membuat page scrollable
-* 'FutureBuilder': membuat/memperbaharui widget secara asinkronus sesuai dengan snapshot yang didapatkan dari Future
+* `SizedBox`: menggunakan SizedBox transparan untuk memberi spasi pada page, dan sebagai pembatas untuk sebuah area
+* `Spacer`: untuk menambahkan spasi pada widget fleksible
+* `ListView`: untuk membuat page scrollable
+* `FutureBuilder`: membuat/memperbaharui widget secara asinkronus sesuai dengan snapshot yang didapatkan dari Future
 
 ## Jelaskan mekanisme pengambilan data dari json hingga dapat ditampilkan pada Flutter.
 
-Pertama-tama, manfaatkan http.get untuk fetch data JSON yang ada pada URL. Lalu, isi dari JSON tersebut akan diolah menjadi objek Watchlist sesuai dengan model. Setelah menjadi objek Watchlist, objek-objek tersebut akan disimpan kedalam sebuah list 'watchlistFronJson'. Selanjutnya, FutureBuilder akan memanfaatkan isi dari list tersebut untuk membuat widget-widget.
+Pertama-tama, manfaatkan http.get untuk fetch data JSON yang ada pada URL. Lalu, isi dari JSON tersebut akan diolah menjadi objek Watchlist sesuai dengan model. Setelah menjadi objek Watchlist, objek-objek tersebut akan disimpan kedalam sebuah list `watchlistFronJson`. Selanjutnya, FutureBuilder akan memanfaatkan isi dari list tersebut untuk membuat widget-widget.
 
 ## Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.
 
 Pertama, saya menambahkan sebuah ListTile pada drawer yang mengarahkan ke page mywatchlist. Lalu, saya menambahkan dependency http serta membuat model melalui Quicktype seperti pada tutorial. Selanjutnya, sebuah fungsi untuk fetch Watchlist sesuai URL dibuat di mywatchlist.dart.
 
-Setelah data JSON dari web sudah tersimpan pada sebuah list, saya membuat ListView dari Watchlist yang ada, serta memanfaatkan FutureBuilder. Untuk mengimplementasikan salah satu dari bonus, saya membuat container dari masing-masing item list pada halaman mywatchlist berwarna, dengan memanfaatkan field 'watched' dari atribut model. Warna merah untuk yang belum ditonton, selain itu akan berwarna hijau. 
+Setelah data JSON dari web sudah tersimpan pada sebuah list, saya membuat ListView dari Watchlist yang ada, serta memanfaatkan FutureBuilder. Untuk mengimplementasikan salah satu dari bonus, saya membuat container dari masing-masing item list pada halaman mywatchlist berwarna, dengan memanfaatkan field `watched` dari atribut model. Warna merah untuk yang belum ditonton, selain itu akan berwarna hijau. 
 
 Untuk halaman detail, saya membuatnya mirip dengan susunan form pada Tugas 8. Mulai dari judul, rating, hingga review disusun dari atas ke bawah dalam satu kolom. Setelah membuat halaman detail ini, saya pun menambahkan Navigator.push untuk mengarahkan setiap item list pada halaman mywatchlist ke detailnya.
