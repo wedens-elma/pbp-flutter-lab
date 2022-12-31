@@ -4,7 +4,9 @@ Nama: Wedens Elma Malau
 
 NPM: 2106751165
 
-[README untuk Tugas 8](https://github.com/wedens-elma/pbp-flutter-lab/blob/main/README.md#tugas-8-pbp)
+[README untuk Tugas 8](https://github.com/wedens-elma/pbp-flutter-lab#tugas-8-pbp)
+
+[README untuk Tugas 9](https://github.com/wedens-elma/pbp-flutter-lab#tugas-9-pbp)
 
 ## Jelaskan apa yang dimaksud dengan stateless widget dan stateful widget dan jelaskan perbedaan dari keduanya.
 
@@ -88,3 +90,34 @@ Pertama, saya membuat sebuah drawer pada `main.dart`. Drawer ini berisi tiga tom
 Setelah menyelesaikan drawer, saya membuat sebuah file lain bernama `form.dart`, yang akan dimasukkan ke routing pada drawere bagian "Tambah Budget". Pada file ini, saya membuat sebuah class untuk menyimpan data budget dan sebuah class untuk state dari halaman. Halaman form ini berisi `TextFormField` untuk nama budget dan nominal, `DateTime` untuk tanggal, dan `DropDown` untuk jenis budget. Terdapat juga sebuah `TextButton` untuk menyimpan input. Untuk menyimpan input, saya membuat sebuah fungsi `onPressed(context)` yang akan meng-construct sebuah objek dari `BudgetData`, yang nantinya akan dimasukkan ke dalam `List<BudgetData>` bernama budgetList.
 
 Untuk halaman data, saya memasukkan masing-masing data budget ke dalam `Material` yang dibentuk seperti card dengan membuat shadow dan elevation, disusun ke dalam sebuah `ListView`. Judul dan nominal budget diletakkan di sebelah kiri, lalu jenis dan tanggal diletakkan di dalam sebuah column trailing, sehingga tampil di sebelah kanan.
+
+
+# Tugas 9 PBP
+
+Nama: Wedens Elma Malau
+
+NPM: 2106751165
+
+## Apakah bisa kita melakukan pengambilan data JSON tanpa membuat model terlebih dahulu? Jika iya, apakah hal tersebut lebih baik daripada membuat model sebelum melakukan pengambilan data JSON?
+
+Ya, pengambilan data JSON dapat dilakukan tanpa membuat model terlebih dahulu, melainkan dengan alternatif lain, yaitu dengan cara manual. Cara manual maksudnya adalah dengan melakukan parsing bentuk JSON secara manual. Namun, hal ini akan memakan waktu yang lebih lama, sehingga kurang efisien untuk program yang besar, sehingga dapat dikatakan bahwa cara ini juga tidak lebih baik daripada membuat model.
+
+## Sebutkan widget apa saja yang kamu pakai di proyek kali ini dan jelaskan fungsinya.
+
+Beberapa widget yang saya tambahkan untuk Tugas 9:
+* 'SizedBox': menggunakan SizedBox transparan untuk memberi spasi pada page, dan sebagai pembatas untuk sebuah area
+* 'Spacer': untuk menambahkan spasi pada widget fleksible
+* 'ListView': untuk membuat page scrollable
+* 'FutureBuilder': membuat/memperbaharui widget secara asinkronus sesuai dengan snapshot yang didapatkan dari Future
+
+## Jelaskan mekanisme pengambilan data dari json hingga dapat ditampilkan pada Flutter.
+
+Pertama-tama, manfaatkan http.get untuk fetch data JSON yang ada pada URL. Lalu, isi dari JSON tersebut akan diolah menjadi objek Watchlist sesuai dengan model. Setelah menjadi objek Watchlist, objek-objek tersebut akan disimpan kedalam sebuah list 'watchlistFronJson'. Selanjutnya, FutureBuilder akan memanfaatkan isi dari list tersebut untuk membuat widget-widget.
+
+## Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.
+
+Pertama, saya menambahkan sebuah ListTile pada drawer yang mengarahkan ke page mywatchlist. Lalu, saya menambahkan dependency http serta membuat model melalui Quicktype seperti pada tutorial. Selanjutnya, sebuah fungsi untuk fetch Watchlist sesuai URL dibuat di mywatchlist.dart.
+
+Setelah data JSON dari web sudah tersimpan pada sebuah list, saya membuat ListView dari Watchlist yang ada, serta memanfaatkan FutureBuilder. Untuk mengimplementasikan salah satu dari bonus, saya membuat container dari masing-masing item list pada halaman mywatchlist berwarna, dengan memanfaatkan field 'watched' dari atribut model. Warna merah untuk yang belum ditonton, selain itu akan berwarna hijau. 
+
+Untuk halaman detail, saya membuatnya mirip dengan susunan form pada Tugas 8. Mulai dari judul, rating, hingga review disusun dari atas ke bawah dalam satu kolom. Setelah membuat halaman detail ini, saya pun menambahkan Navigator.push untuk mengarahkan setiap item list pada halaman mywatchlist ke detailnya.
